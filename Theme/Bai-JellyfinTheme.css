@@ -13,11 +13,8 @@
  * This file contains modifications and customizations based on ElegantFin.
  * Licensed under the GNU General Public License v2.0.
  */
-/*! ElegantFin Theme Nightly for Jellyfin by lscambo13 */
-
-/* Add-ons: Uncomment to enable */
-/* @import url(./assets/add-ons/media-bar-plugin-support-nightly.css); */
-/* @import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css"); */
+ 
+/*! Bai-JellyfinTheme by CG-Bai */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
@@ -43,7 +40,7 @@
 }
 
 :root {
-    --elegantFinFooterText: "ElegantFin Nightly";
+    --Bai-JellyfinThemeFooterText: "Bai-JellyfinTheme Nightly";
 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -460,7 +457,7 @@ select {
 
 #myPreferencesMenuPage > div:after,
 .dashboardFooter::after {
-    content: var(--elegantFinFooterText);
+    content: var(--Bai-JellyfinThemeFooterText);
     font-size: 0.8em;
     color: var(--borderColor);
     display: inline-grid;
