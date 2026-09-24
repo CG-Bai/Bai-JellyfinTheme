@@ -13,8 +13,11 @@
  * This file contains modifications and customizations based on ElegantFin.
  * Licensed under the GNU General Public License v2.0.
  */
+
+/*! Bai-JellyfinTheme - based on ElegantFin by lscambo13, modified by CG-Bai */
  
-/*! Bai-JellyfinTheme by CG-Bai */
+/*! ElegantFin Theme for Jellyfin by lscambo13 */
+/*! Bai-JellyfinTheme - modified by CG-Bai */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
@@ -40,7 +43,7 @@
 }
 
 :root {
-    --Bai-JellyfinThemeFooterText: "Bai-JellyfinTheme Nightly";
+    --Bai-JellyfinThemeFooterText: "Bai-JellyfinTheme";
 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -4601,8 +4604,5 @@ for extended styling, use the add-on */
 :root{
   --overlayPlayButtonPosition: 50%;
 }
-
-=========================================================================================
-
 
 /* basic styling for the Media Bar Plugin - end */
