@@ -2362,9 +2362,16 @@ progress + span {
 
     box-shadow: var(--glassShadow) !important;
 
-    /* 非常重要：
-       防止里面的直角背景冲出圆角 */
-    overflow: hidden !important;
+    /* 弹窗不能超过屏幕高度 */
+    max-height: calc(100vh - 2em) !important;
+    max-height: calc(100dvh - 2em) !important;
+
+    /* 横向继续裁切，纵向允许滚动 */
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
 }
 
 @media (max-width: 80em), (max-height: 45em) {
@@ -3096,10 +3103,15 @@ div[data-role="controlgroup"] a.ui-btn-active {
     background-image: none !important;
 
     border-radius: inherit !important;
+}
 
-    max-height: calc(100vh - 6em) !important;
+/* Jellyfin Dialog 内部滚动层 */
+.dialog .smoothScrollY {
     overflow-y: auto !important;
     overflow-x: hidden !important;
+
+    max-height: calc(100vh - 2em) !important;
+    max-height: calc(100dvh - 2em) !important;
 
     overscroll-behavior: contain;
     scrollbar-width: thin;
