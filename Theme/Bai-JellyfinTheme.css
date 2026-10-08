@@ -3096,6 +3096,13 @@ div[data-role="controlgroup"] a.ui-btn-active {
     background-image: none !important;
 
     border-radius: inherit !important;
+
+    max-height: calc(100vh - 6em) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
 }
 
 .actionSheetContent > h1 {
