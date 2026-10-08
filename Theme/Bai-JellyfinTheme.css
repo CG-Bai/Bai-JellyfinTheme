@@ -2362,8 +2362,7 @@ progress + span {
 
     box-shadow: var(--glassShadow) !important;
 
-    /* 非常重要：
-       防止里面的直角背景冲出圆角 */
+    /* 保留圆角裁切；语言下拉框属于 MUI Menu，不在这里处理 */
     overflow: hidden !important;
 }
 
@@ -2866,12 +2865,12 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 /* =========================================================
    Jellyfin 12 用户头像菜单
+   只影响右上角 app-user-menu，不再影响语言等其它 MUI 菜单
    ========================================================= */
 
-/* 菜单最外层 */
-.MuiPopover-paper.MuiMenu-paper,
-.MuiMenu-paper {
-    /* 半透明背景，和顶栏一样跟随当前主题 */
+/* 用户菜单最外层 */
+#app-user-menu .MuiPopover-paper.MuiMenu-paper,
+#app-user-menu .MuiMenu-paper {
     background: color-mix(
         in srgb,
         var(--jf-palette-background-default) 20%,
@@ -2884,33 +2883,22 @@ div[data-role="controlgroup"] a.ui-btn-active {
         transparent
     ) !important;
 
-    /* 清掉 MUI 自己可能添加的背景图 */
     background-image: none !important;
 
-    /* 毛玻璃 */
     backdrop-filter: var(--blurLargest) !important;
     -webkit-backdrop-filter: var(--blurLargest) !important;
 
-    /* 圆角 */
     border-radius: 24px !important;
-
-    /* 边缘 */
     border: 1px solid var(--glassBorder) !important;
-
-    /* 阴影 */
     box-shadow: var(--glassShadow) !important;
 
-    /* 让里面的内容也被圆角裁掉 */
+    /* 用户菜单项目很少，可安全裁进圆角 */
     overflow: hidden !important;
 }
 
-
-/* =========================================================
-   清除菜单里面第二层背景
-   ========================================================= */
-
-.MuiMenu-list,
-.MuiList-root.MuiMenu-list {
+/* 用户菜单内部列表透明 */
+#app-user-menu .MuiMenu-list,
+#app-user-menu .MuiList-root.MuiMenu-list {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
@@ -2918,16 +2906,10 @@ div[data-role="controlgroup"] a.ui-btn-active {
     border-radius: inherit !important;
 }
 
-
-/* =========================================================
-   每一个菜单项目
-   ========================================================= */
-
-.MuiMenuItem-root {
+/* 用户菜单每一个项目 */
+#app-user-menu .MuiMenuItem-root {
     background: transparent !important;
-
     border-radius: 12px !important;
-
     margin: 2px 6px !important;
 
     transition:
@@ -2935,9 +2917,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
         color 0.2s ease !important;
 }
 
-
-/* 鼠标经过 */
-.MuiMenuItem-root:hover {
+#app-user-menu .MuiMenuItem-root:hover {
     background: color-mix(
         in srgb,
         var(--textColor) 12%,
@@ -2945,16 +2925,23 @@ div[data-role="controlgroup"] a.ui-btn-active {
     ) !important;
 }
 
-
-/* =========================================================
-   分割线
-   ========================================================= */
-
-.MuiMenu-paper .MuiDivider-root {
+#app-user-menu .MuiDivider-root {
     margin-left: 10px !important;
     margin-right: 10px !important;
-
     opacity: 0.6;
+}
+
+/* =========================================================
+   Jellyfin 12 语言菜单
+   MUI 会自己限制菜单高度，这里只把纵向滚动还给它
+   ========================================================= */
+
+#menu-language .MuiPopover-paper.MuiMenu-paper,
+#menu-language .MuiMenu-paper {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
 }
 
 .listItemImage {
@@ -3097,6 +3084,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
     border-radius: inherit !important;
 }
+
 
 .actionSheetContent > h1 {
     font-size: unset;
